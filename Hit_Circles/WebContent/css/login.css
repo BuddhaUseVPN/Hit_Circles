@@ -1,0 +1,13 @@
+@CHARSET "UTF-8";
+.login_bg{background:url(../images/login_bg.jpg) no-repeat top center; width:100%;}
+.kuang{ width:269px; height:280px; padding-left:38px;
+		background:rgba(255,255,255,0.7);  margin: 4em auto;}
+.kuang h1{ font:16px/70px "微软雅黑", "黑体"; color:#37b5f9; width:270px;  text-align:left;}
+input.txt1{ width:220px; height:28px; border:1px solid #dddddd; background:#faffbd;
+		 line-height:32px; padding-left:16px; color:#b1a9a9;  margin-bottom:10px; }
+input.txt2{ width:220px; height:28px; border:1px solid #dddddd; background:#faffbd;
+		 line-height:32px; padding-left:16px; color:#b1a9a9;  margin-bottom:30px; }
+input.butt{width:227px; height:33px; background:#37b5f9; font-size:14px;
+ line-height:33px; text-align:center; border:0px; color:#fff; border-radius:3px; cursor:pointer;}
+.footer{position:absolute; bottom:-100px; width:100%;}
+.footer h1{font:15px/30px "微软雅黑", "黑体"; color:#ffffff; width:110px; text-align:center;margin: 0 auto;}

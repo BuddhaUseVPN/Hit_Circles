@@ -1,0 +1,21 @@
+@CHARSET "UTF-8";
+.signup_bg{background:url(../images/login_bg.jpg) no-repeat top center}
+.kuang{width:280px; height:350px; padding-left:38px;
+		background:#ffffff;	margin: 4em auto;}
+.kuang h1{ font:16px/70px "微软雅黑", "黑体"; color:#000000; width:270px; 
+		 padding-left:85px;}
+.kuang p{ width:135px; font:12px/60px ""; color:#999999;}
+.kuang p a{color:#37b5f9;}
+input.userID{ width:220px; height:28px; border:1px solid #dddddd; background:
+			url(../images/userID.jpg) no-repeat #ffffff left;
+		 line-height:32px; padding-left:18px; color:#b1a9a9;  margin-bottom:10px; }
+input.password{ width:220px; height:28px; border:1px solid #dddddd; background:
+			url(../images/password.jpg) no-repeat #ffffff left;
+		 line-height:32px; padding-left:18px; color:#b1a9a9;  margin-bottom:10px; }
+input.tellphone{ width:220px; height:28px; border:1px solid #dddddd; background:
+			url(../images/tellphone.png) no-repeat #ffffff left;
+		 line-height:32px; padding-left:18px; color:#b1a9a9;  margin-bottom:5px; }
+input.butt{ width:227px; height:33px; background:#37b5f9; font-size:14px;
+ line-height:33px; text-align:center; border:0px; color:#fff; border-radius:3px; cursor:pointer;}
+.footer{position:absolute; bottom:-100px; width:100%;}
+.footer h1{font:15px/30px "微软雅黑", "黑体"; color:#ffffff; width:110px; text-align:center;margin: 0 auto;}
