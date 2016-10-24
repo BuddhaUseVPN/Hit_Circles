@@ -5,6 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>MyInformattion</title>
+<style type="text/css">
+body{margin:0;padding:0;background:url("images/login_bg.jpg");}
+
+</style>
 <script language="javascript">
 function getInformation() 
 {
@@ -13,8 +17,8 @@ function getInformation()
 </script>
 </head>
 <body>
-		<h3>${user.userID}</h3>
-		<h3>${user.password}</h3>
-		<h3>${user.tellphone}</h3>
+		<h3>用户名：${user.userID}</h3>
+		<h3>密码：${user.password}</h3>
+		<h3>电话：${user.tellphone}</h3>
 </body>
 </html>

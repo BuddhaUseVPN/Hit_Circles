@@ -61,9 +61,9 @@
 
 </script>
 
-<frameset rows="90,*" framespacing="0">
+<frameset rows="130,*" framespacing="0">
 			<frame src="top.jsp" name="top">
-			<frameset cols="120,*" frameborder="yes">
+			<frameset cols="380,*" frameborder="yes">
 				<frame src="left.jsp" name="left">
 				<frame src="main.jsp" name="main">
 			</frameset>
