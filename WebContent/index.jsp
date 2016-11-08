@@ -4,7 +4,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <title>Hit_Circles</title>
+<style type="text/css">
+.a{
+position:absolute;
+z-index:1;
+}
+.b{
+position:absolute;
+z-index:2;
+}
+</style>
 </head>
 <script language="javascript">
 	var XMLHttpReq;
@@ -61,14 +72,7 @@
 
 </script>
 
-<frameset rows="130,*" framespacing="0" id="all">
-			<frame src="top.jsp" name="top">
-			<frameset cols="280,*" frameborder="yes">
-				<frame src="left.jsp" name="left">
-				<frame src="main.jsp" name="main">
-			</frameset>
-</frameset>
-
 <body>
+<jsp:forward page="main.jsp"/>
 </body>
 </html>

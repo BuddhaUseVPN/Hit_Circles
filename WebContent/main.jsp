@@ -6,10 +6,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>main</title>
 <link type="text/css" rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="css/bootstrap.css"  rel="stylesheet">
+
 </head>
 <style type="text/css">
 body{margin:0;padding:0;
-background-image:url("images/back.jpg");
+background-image:url("images/circle05.jpg");
 background-attachment: fixed;
 background-repeat: no-repeat;
 background-size: cover;}
@@ -82,9 +88,35 @@ top:46px;
 }
 </style> 
 <body>
-		<table align="center">
-		<tr><td><a href="getNews.Servlet" class="a_demo_one">查看热点新闻</a></td></tr>
-		<tr><td><a href="getTalks.Servlet" class="a_demo_one">查看热点话题</a></td></tr>
-		</table>
+		<nav class="navbar navbar-default" role="navigation">
+	<div class="container-fluid">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="main.jsp">首页</a>
+	</div>
+	<div>
+		<ul class="nav navbar-nav">
+			<li ><a href="getNews.Servlet">热点新闻</a></li>
+			<li><a href="getTalks.Servlet">热点话题</a></li>
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+					我的
+					<b class="caret"></b>
+				</a>
+				<ul class="dropdown-menu">
+					<li><a href="MyNews.jsp">我的新闻</a></li>
+					<li><a href="MyTalk.jsp">我的话题</a></li>
+					<li class="divider"></li>
+					<li><a href="MyInformation.jsp">我的信息</a></li>
+					<li class="divider"></li>
+					<li><a href="signup.jsp">登录|注册</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	</div>
+</nav>
+
+
+		
 </body>
 </html>
