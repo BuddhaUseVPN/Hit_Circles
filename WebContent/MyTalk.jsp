@@ -55,8 +55,8 @@ p{
 	</div>
 	<div>
 		<ul class="nav navbar-nav">
-			<li><a href="getNews.Servlet">热点新闻</a></li>
-			<li><a href="getTalks.Servlet">热点话题</a></li>
+			<li><a href="getNews.Servlet?begin=0&end=9">热点新闻</a></li>
+			<li><a href="getTalks.Servlet?begin=0&end=9">热点话题</a></li>
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 					我的
@@ -76,9 +76,11 @@ p{
 	</div>
 </nav>  
 <p align="center"><span class="a">我收藏的话题</span></p>  
+<table align="center" border=0>
 <c:forEach items="${Talks}" var="t">
-		<p align="center"><span class="d"><a href="getTalksComment.Servlet?title=${t.title}&text=${t.text}&userID=${t.userID}">${t.title}</a></span></p> 
-		 <!--<p>${t.userID}</p>
+		<tr align="center"><td align="left" class="d"><a href="getTalksComment.Servlet?title=${t.title}&text=${t.text}&userID=${t.userID}">${t.title}</a></td>
+		<td><button type="button" class="btn btn-primary btn-sm" onclick=alert("操作成功!")>删除</button></td> </tr>
+		 <!--<p>${t.userID}</p>	<!-- 上一行的onclick事件将参数传至“我的收藏中”从而删除，你对照着后台传吧。。。 -->
 		<p>${t.title}</p>
 		<p>${t.text}</p>-->
 	</c:forEach>

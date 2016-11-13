@@ -40,7 +40,7 @@ background-size: cover;}
     line-height: normal;  
     font-weight: normal;  
     font-variant: normal;  
-    color: #FF0000;  
+    color: #000000;  
 }  
   
 }  
@@ -56,8 +56,8 @@ p{
 	</div>
 	<div>
 		<ul class="nav navbar-nav">
-			<li><a href="getNews.Servlet">热点新闻</a></li>
-			<li><a href="getTalks.Servlet">热点话题</a></li>
+			<li><a href="getNews.Servlet?begin=0&end=9">热点新闻</a></li>
+			<li><a href="getTalks.Servlet?begin=0&end=9">热点话题</a></li>
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 					我的
@@ -77,9 +77,11 @@ p{
 	</div>
 </nav>    
 <p align="center"><span class="a">我收藏的新闻</span></p>  
-
+<table align="center" border=0>
 <c:forEach items="${News}" var="n" begin="0" end="30"><!-- 在此需要传“收藏新闻”的参数到此jsp即可 -->
-		<p align="center"><span class="d"><a href="${n.url}">${n.title}</a></span></p>
-	</c:forEach>
+		<tr align="center"><td align="left" class="d"><a href="${n.url}">${n.title}</a></td>
+		<td><button type="button" class="btn btn-primary btn-sm" onclick=alert("操作成功!")>删除</button></td></tr>
+	</c:forEach>	<!-- 上一行的onclick事件将参数传至“我的收藏中”从而删除，你对照着后台传吧。。。 -->
+</table>
 </body>  
 </html>

@@ -61,7 +61,7 @@ a:active {color: #0000FF} /* 选定的链接 */
     line-height: normal;  
     font-weight: normal;  
     font-variant: normal;  
-    color: #FFFF00;  
+    color: #000000;  
 }  
   
 .e {  
@@ -81,8 +81,8 @@ a:active {color: #0000FF} /* 选定的链接 */
 	</div>
 	<div>
 		<ul class="nav navbar-nav">
-			<li><a href="getNews.Servlet">热点新闻</a></li>
-			<li class="active"><a href="getTalks.Servlet">热点话题</a></li>
+			<li><a href="getNews.Servlet?begin=0&end=9">热点新闻</a></li>
+			<li class="active"><a href="getTalks.Servlet?begin=0&end=9">热点话题</a></li>
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 					我的
@@ -102,13 +102,15 @@ a:active {color: #0000FF} /* 选定的链接 */
 	</div>
 </nav>
 	<p align="left"><span class="a">&nbsp;&nbsp;&nbsp;&nbsp;热点话题</span></p>
-	
-	<c:forEach items="${Talks}" var="t">
-		<p align="center"><span class="d"><a href="getTalksComment.Servlet?title=${t.title}&text=${t.text}&userID=${t.userID}">${t.title}</a></span></p> 
-		 <!--<p>${t.userID}</p>
+	<table align="center" border=0>
+	<c:forEach items="${Talks}" var="t" begin="${begin}" end="${end}">
+		<tr align="center"><td align="left" class="d"><a href="getTalksComment.Servlet?title=${t.title}&text=${t.text}&userID=${t.userID}">${t.title}</a></td>
+		<td><button type="button" class="btn btn-primary btn-sm" onclick=alert("操作成功!")>收藏</button></td></tr> 
+		 <!--<p>${t.userID}</p><!-- 上一行的onclick事件将参数传至“我的收藏中”，你对照着后台传吧。。。 -->
 		<p>${t.title}</p>
 		<p>${t.text}</p>-->
 	</c:forEach>
+	</table>
 	
 	<div align="center">
 	<a href="GiveTalk.jsp"><button type="button" class="btn btn-primary btn-lg">发表话题</button></a>
@@ -116,16 +118,16 @@ a:active {color: #0000FF} /* 选定的链接 */
 	<div align="center">
 	<ul class="pagination">
     <li><a href="#">&laquo;</a></li>
-    <li><a href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">5</a></li>
-    <li><a href="#">6</a></li>
-    <li><a href="#">7</a></li>
-    <li><a href="#">8</a></li>
-    <li><a href="#">9</a></li>
-    <li><a href="#">10</a></li>
+    <li><a href="alltalks.jsp?begin=0&end=9">1</a></li>
+    <li><a href="alltalks.jsp?begin=10&end=19">2</a></li>
+    <li><a href="alltalks.jsp?begin=20&end=29">3</a></li>
+    <li><a href="alltalks.jsp?begin=30&end=39">4</a></li>
+    <li><a href="alltalks.jsp?begin=40&end=49">5</a></li>
+    <li><a href="alltalks.jsp?begin=50&end=59">6</a></li>
+    <li><a href="alltalks.jsp?begin=60&end=69">7</a></li>
+    <li><a href="alltalks.jsp?begin=70&end=79">8</a></li>
+    <li><a href="alltalks.jsp?begin=80&end=89">9</a></li>
+    <li><a href="alltalks.jsp?begin=90&end=99">10</a></li>
     <li><a href="#">&raquo;</a></li>
 </ul>
 </div>
