@@ -57,6 +57,7 @@ p{
 		<ul class="nav navbar-nav">
 			<li><a href="getNews.Servlet?begin=0&end=9">热点新闻</a></li>
 			<li><a href="getTalks.Servlet?begin=0&end=9">热点话题</a></li>
+			<li><a href="Chat.jsp">好友聊天</a></li>
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 					我的
