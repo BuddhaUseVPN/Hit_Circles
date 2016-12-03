@@ -22,45 +22,24 @@ public class getNewsUrl
 		Document link = Jsoup.connect(url).get();
 		Elements links = link.select("div.news");
 		ArrayList<String> hrefs = new ArrayList<String>();
+		ArrayList<String> tags = new ArrayList<String>();
 		for(int i=0;i<links.size();i++)
 		{
 			Elements d = links.get(i).getElementsByTag("a");
+			Elements e = links.get(i).getElementsByTag("font");
 			for(int j=1;j<d.size();j+=2)
 				hrefs.add("http://today.hit.edu.cn"+d.get(j).attr("href"));
+			for(int z=0;z<e.size();z++)
+				tags.add(e.get(z).text());	
 		}
-		for(int i=0;i<hrefs.size();i++)
+		for(int i=0;i<tags.size() && i<hrefs.size();i++)
 		{
 			Document doc = Jsoup.connect(hrefs.get(i)).get();
 			String title = doc.title();
+			String date_1[] = doc.getElementById("date").text().split(" ");
+			String date_2 = date_1[0] + " " + date_1[1];
 			dao_News n = new dao_News();
-			n.InsertNews(title,hrefs.get(i));
-			Elements body = doc.select("div.articletext").select("p,img");
-			for(int j=0;j<body.size();j++)
-			{
-				String text = body.get(j).text();
-			}
-			/*Elements img = doc.select("div.articletext").select("img");
-			for(int j=0;j<img.size();j++)
-			{
-				String src = img.attr("abs:src");
-				String src1 = src.substring(src.lastIndexOf("/"));
-				String filepath = "C:/Users/¸ßÎÄÁÖ/Desktop"+src1;
-				getBytes b = new getBytes();
-				byte[] bit = b.getByte(src);
-				BufferedOutputStream o = null;   
-			    if (bit.length > 0) 
-			    {  
-			           try {  
-			                o = new BufferedOutputStream(new FileOutputStream(filepath));  
-			                o.write(bit);  
-			                o.flush();  
-			            } finally
-			           {  
-			                if (o != null)  
-			                    o.close();  
-			           }  
-			    }  
-			}*/
+			n.InsertNews(tags.get(i),title,hrefs.get(i),date_2);
 		}	
 	}
 }

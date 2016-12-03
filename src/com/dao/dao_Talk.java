@@ -189,4 +189,33 @@ public class dao_Talk
 		}
 		return text;
 	}
+	
+	public ArrayList<Talks> searchTalks(String text)
+	{
+		ArrayList<Talks> talks = new ArrayList<Talks>();
+		try
+		{
+			String sql = "select * from talks";
+			Connection con = DBUtil.getConnection();
+			PreparedStatement st = con.prepareStatement(sql);
+			ResultSet rs = st.executeQuery();
+			while(rs.next())
+			{
+				if(rs.getString("title").indexOf(text)>-1)
+				{
+					Talks t = new Talks();
+					t.setId(rs.getInt("id"));
+					t.setUserID(rs.getString("userID"));
+					t.setTitle(rs.getString("title"));
+					t.setText(rs.getString("text"));
+					talks.add(t);
+				}
+			}
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return talks;
+	}
 }

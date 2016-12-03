@@ -32,8 +32,6 @@ public class getTalks extends HttpServlet {
 	{
 		dao_Talk n = new dao_Talk();
 		request.setAttribute("Talks", n.getTalks());
-		request.setAttribute("begin", request.getParameter("begin"));
-		request.setAttribute("end", request.getParameter("end"));
 		request.getRequestDispatcher("/alltalks.jsp").forward(request, response);
 	}
 

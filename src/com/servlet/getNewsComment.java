@@ -1,13 +1,19 @@
 package com.servlet;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
+
 import com.dao.dao_News;
+import com.jsoup.SaveImg;
 
 /**
  * Servlet implementation class getNewsComment
@@ -29,12 +35,28 @@ public class getNewsComment extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
-		int id = (int) request.getAttribute("id");
-		dao_News n = new dao_News();
-		for(int i=0;i<n.getNewsComment(id).size();i++)
+		String url= request.getParameter("url");
+		int id = Integer.parseInt(request.getParameter("id"));
+		Document link = Jsoup.connect(url).get();
+		Elements l = link.select("div.articletext").select("img[src]");
+		for(int i=0;i<l.size();i++)
 		{
-			request.setAttribute("comment", n.getNewsComment(id).get(i));
+			String imgurl = l.get(i).attr("src");
+			String dir = "D:/java/Hit_Circles/WebContent/images";
+			if (imgurl.trim().startsWith("/")) 
+			{
+				SaveImg s = new SaveImg();
+				s.DownloadImg(imgurl,dir);
+				l.get(i).attr("src","images"+imgurl);
+			}
 		}
+		String text = link.select("div.articletext").html();
+		dao_News n = new dao_News();
+		request.setAttribute("id", id);
+		request.setAttribute("title", request.getParameter("title"));
+		request.setAttribute("text", text);
+		request.setAttribute("comment", n.getNewsComment(id));
+		request.getRequestDispatcher("/shownew.jsp").forward(request, response);
 		
 	}
 
