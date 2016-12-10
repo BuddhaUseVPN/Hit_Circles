@@ -8,17 +8,38 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
   <head>
     <base href="<%=basePath%>">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <title>My WebSocket</title>
+    
   </head>
    
   <body>
-    Welcome<br/>
-    <input id="text" type="text" /><button onclick="send()">Send</button>    <button onclick="closeWebSocket()">Close</button>
-    <div id="message">
-    </div>
+  	<div class="container" style="margin-top:80px;height:100%;width:60%;">
+		    <div class="row clearfix">
+		        <div class="col-md-4 column">
+		        	<img src="images/头像.png" style="height:30%;width:30%;">
+		        	<h4><%=request.getParameter("userID") %></h4>
+		        </div>
+		        <div class="col-md-8 column">
+		        	<div id="message"></div>
+			            <div style="position:fixed;bottom:50px;">
+				            <textarea id="text" style="height:80px;width:400px;border:1px solid #f0ad4e;">
+				            </textarea>
+				            <h4></h4>
+				            <button type="button" class="btn btn-info" onclick="send()">发送</button>    
+		                	<button type="button" class="btn btn-danger" onclick="closeWebSocket()">关闭</button>
+	                	</div>
+		    	</div>
+		</div>
+  	</div>
   </body>
    
-  <script type="text/JavaScript">
+   <script src="js/jquery-1.11.1.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+   <script src="js/bootstrap.min.js"></script>
+
+   
+   <script type="text/JavaScript">
       var websocket = null;
        
       //判断当前浏览器是否支持WebSocket
@@ -35,8 +56,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       };
        
       //连接成功建立的回调方法
-      websocket.onopen = function(event){
-          setMessageInnerHTML("open");
+      websocket.onopen = function(event)
+      {
+          //setMessageInnerHTML("open");
       }
        
       //接收到消息的回调方法
@@ -56,7 +78,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        
       //将消息显示在网页上
       function setMessageInnerHTML(innerHTML){
-          document.getElementById('message').innerHTML += innerHTML + '<br/>';
+          document.getElementById('message').innerHTML += '<h3><span class="label label-info">' + innerHTML + '</span><h3/>';
       }
        
       //关闭连接
@@ -71,3 +93,4 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       }
   </script>
 </html>
+		           

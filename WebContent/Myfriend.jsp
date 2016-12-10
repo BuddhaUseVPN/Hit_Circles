@@ -147,7 +147,7 @@ pointer-events: auto;
 		            		<div class="panel panel-warning">
 								<div class="panel-heading">
 									<a href="GetFriendinformation.Servlet?userID=${f}"><h4>${f}</h4></a>
-									<a href="Chat.jsp" class="btn btn-danger pull-right" style="margin-top:-35px;" role="button">发起会话</a>
+									<a href="Chat.jsp?userID=${f}" class="btn btn-danger pull-right" style="margin-top:-35px;" role="button">发起会话</a>
 								</div>
 							</div>
 						</c:forEach>
