@@ -12,7 +12,7 @@
 <script src="js/bootstrap.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="css/bootstrap.css"  rel="stylesheet">
-<title>allnews</title>
+<title>allnews第${begin}页</title>
 <style type="text/css">
 body{margin:0;padding:0;
 background-image:url("images/circle05.jpg");
@@ -58,7 +58,7 @@ a:active {color: #0000FF} /* 选定的链接 */
     line-height: normal;  
     font-weight: normal;  
     font-variant: normal;  
-    color: #FFFF00;  
+    color: #000000;  
 }  
   
 .e {  
@@ -75,8 +75,8 @@ a:active {color: #0000FF} /* 选定的链接 */
 	</div>
 	<div>
 		<ul class="nav navbar-nav">
-			<li class="active"><a href="getNews.Servlet">热点新闻</a></li>
-			<li><a href="getTalks.Servlet">热点话题</a></li>
+			<li class="active"><a href="getNews.Servlet?begin=0&end=9">热点新闻</a></li>
+			<li><a href="getTalks.Servlet?begin=0&end=9">热点话题</a></li>
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 					我的
@@ -98,22 +98,25 @@ a:active {color: #0000FF} /* 选定的链接 */
 	
 	 
 	<p align="left"><span class="a">&nbsp;&nbsp;&nbsp;&nbsp;热点新闻</span></p> 
-	<c:forEach items="${News}" var="n" begin="0" end="30">
-		<p align="center"><span class="d"><a href="${n.url}">${n.title}</a></span></p>
-	</c:forEach>
+	<table align="center" border=0>
+	<c:forEach items="${News}" var="n" begin="${begin}" end="${end}">
+		<tr align="center"><td align="left" class="d"><a href="${n.url}">${n.title}</a></td>
+		<td><button type="button" class="btn btn-primary btn-sm" onclick=alert("操作成功!")>收藏</button></td></tr>
+	</c:forEach> <!-- 上一行的onclick事件将参数传至“我的收藏中”，你对照着后台传吧。。。 -->
+	</table>
 	<div align="center">
 	<ul class="pagination">
     <li><a href="#">&laquo;</a></li>
-    <li><a href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">5</a></li>
-    <li><a href="#">6</a></li>
-    <li><a href="#">7</a></li>
-    <li><a href="#">8</a></li>
-    <li><a href="#">9</a></li>
-    <li><a href="#">10</a></li>
+    <li><a href="allnews.jsp?begin=0&?end=9">1</a></li>
+    <li><a href="allnews.jsp?begin=10&?end=19">2</a></li>
+    <li><a href="allnews.jsp?begin=20&?end=29">3</a></li>
+    <li><a href="allnews.jsp?begin=30&?end=39">4</a></li>
+    <li><a href="allnews.jsp?begin=40&?end=49">5</a></li>
+    <li><a href="allnews.jsp?begin=50&?end=59">6</a></li>
+    <li><a href="allnews.jsp?begin=60&?end=69">7</a></li>
+    <li><a href="allnews.jsp?begin=70&?end=79">8</a></li>
+    <li><a href="allnews.jsp?begin=80&?end=89">9</a></li>
+    <li><a href="allnews.jsp?begin=90&?end=99">10</a></li>
     <li><a href="#">&raquo;</a></li>
 </ul>
 </div>
