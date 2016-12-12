@@ -45,7 +45,7 @@ public class setTalksComment extends HttpServlet {
 		String comment =  request.getParameter("comment");
 		dao_Talk t = new dao_Talk();
 		t.setTalksComment(id, userID, comment);
-		request.getRequestDispatcher("/showtalk.jsp").forward(request, response);
+		request.getRequestDispatcher("/getTalks.Servlet").forward(request, response);
 	}
 
 	/**

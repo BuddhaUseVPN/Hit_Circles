@@ -11,15 +11,17 @@ import com.util.DBUtil;
 
 public class dao_News 
 {
-	public void InsertNews(String Title,String url)
+	public void InsertNews(String tags,String Title,String url,String date)
 	{
 		try
 		{
-			String sql = "insert into news(title,url) values(?,?)";
+			String sql = "insert into news(tags,title,url,date) values(?,?,?,?)";
 			Connection con = DBUtil.getConnection();
 			PreparedStatement st = con.prepareStatement(sql);
-			st.setString(1, Title);
-			st.setString(2, url);
+			st.setString(1, tags);
+			st.setString(2, Title);
+			st.setString(3, url);
+			st.setString(4, date);
 			st.executeUpdate();
 		}
 		catch(Exception e)
@@ -41,8 +43,10 @@ public class dao_News
 			{
 				news n = new news();
 				n.setId(rs.getInt("id"));
+				n.settags(rs.getString("tags"));
 				n.settitle(rs.getString("title"));
 				n.seturl(rs.getString("url"));
+				n.setdate(rs.getString("date"));
 				News.add(n);
 			}
 		}
@@ -122,6 +126,27 @@ public class dao_News
 		return id;
 	}
 	
+	public ArrayList<String> gettags()
+	{
+		ArrayList<String> tags = new ArrayList<String>();
+		try
+		{
+			String sql = "select * from news";
+			Connection con = DBUtil.getConnection();
+			PreparedStatement st = con.prepareStatement(sql);
+			ResultSet rs = st.executeQuery();
+			while(rs.next())
+			{
+				tags.add(rs.getString("tags"));
+			}
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return tags;
+	}
+	
 	public ArrayList<String> getTitle()
 	{
 		ArrayList<String> title = new ArrayList<String>();
@@ -162,5 +187,35 @@ public class dao_News
 			e.printStackTrace();
 		}
 		return url;
+	}
+	
+	public ArrayList<news> searchNews(String text)
+	{
+		ArrayList<news> News = new ArrayList<news>();
+		try
+		{
+			String sql = "select * from news";
+			Connection con = DBUtil.getConnection();
+			PreparedStatement st = con.prepareStatement(sql);
+			ResultSet rs = st.executeQuery();
+			while(rs.next())
+			{
+				if(rs.getString("title").indexOf(text)>-1)
+				{
+					news n = new news();
+					n.setId(rs.getInt("id"));
+					n.settags(rs.getString("tags"));
+					n.settitle(rs.getString("title"));
+					n.seturl(rs.getString("url"));
+					n.setdate(rs.getString("date"));
+					News.add(n);
+				}
+			}
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return News;
 	}
 }

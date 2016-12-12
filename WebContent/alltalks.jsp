@@ -6,133 +6,226 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link type="text/css" rel="stylesheet" href="css/main.css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>allnews</title>
 <link rel="stylesheet" href="css/bootstrap.min.css">
-<script src="js/jquery-1.11.3.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="css/bootstrap.css"  rel="stylesheet">
-<title>alltalks</title>
-<link type="text/css" rel="stylesheet" href="css/alltalk.css">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
-<title>无标题文档</title>  
-<style type="text/css">
-body{margin:0;padding:0;
-background-image:url("images/circle05.jpg");
-background-attachment: fixed;
-background-repeat: no-repeat;
-background-size: cover;}
+<link rel="stylesheet" href="css/login.css">
+<link rel="stylesheet" href="css/signup.css">
+<style>
+body{padding-top: :60px;}
 
-</style>
-<style type="text/css">  
-a:link {color: #000000} /* 未访问的链接 */
-a:visited {color: #00FF00} /* 已访问的链接 */
-a:hover {color: #FF00FF} /* 鼠标移动到链接上 */
-a:active {color: #0000FF} /* 选定的链接 */
-.a {  
-    font-family: "Times New Roman";  
-    font-size: 30px;  
-    font-style: normal;  
-    line-height: 40px;  
-    font-weight: bolder;  
-    font-variant: normal;  
-    color: #FF6600;  
-    text-align: center;  
-}  
-.b {  
-    font-size: 12px;  
-    font-style: normal;  
-    font-weight: normal;  
-    font-variant: normal;  
-    color: #FF000;  
-}  
-.c {  
-    font-family: "Times New Roman";  
-    font-size: 12px;  
-    font-style: normal;  
-    line-height: normal;  
-    font-weight: bolder;  
-    font-variant: normal;  
-    color: #FF000;  
-}  
-.d {  
-    font-size: 18px;  
-    font-style: normal;  
-    line-height: normal;  
-    font-weight: normal;  
-    font-variant: normal;  
-    color: #000000;  
-}  
-  
-.e {  
-    text-align: center;  
-    vertical-align: middle;  
+.navbar{
+	background-color:rgba(255,255,255,0.6);
 }
-.p{
-	text-indent:2em;
-}  
-</style>  
-</head>  
-<body>
-<nav class="navbar navbar-default" role="navigation">
-	<div class="container-fluid">
-	<div class="navbar-header">
-		<a class="navbar-brand" href="main.jsp">首页</a>
-	</div>
-	<div>
-		<ul class="nav navbar-nav">
-			<li><a href="getNews.Servlet?begin=0&end=9">热点新闻</a></li>
-			<li class="active"><a href="getTalks.Servlet?begin=0&end=9">热点话题</a></li>
-			<li><a href="Chat.jsp">好友聊天</a></li>
-			<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-					我的
-					<b class="caret"></b>
-				</a>
-				<ul class="dropdown-menu">
-					<li><a href="MyNews.jsp">我的新闻</a></li>
-					<li><a href="MyTalk.jsp">我的话题</a></li>
-					<li class="divider"></li>
-					<li><a href="MyInformation.jsp">我的信息</a></li>
-					<li class="divider"></li>
-					<li><a href="signup.jsp">登录|注册</a></li>
-				</ul>
-			</li>
-		</ul>
-	</div>
-	</div>
-</nav>
-	<p align="left"><span class="a">&nbsp;&nbsp;&nbsp;&nbsp;热点话题</span></p>
-	<table align="center" border=0>
-	<c:forEach items="${Talks}" var="t" begin="${begin}" end="${end}">
-		<tr align="center"><td align="left" class="d"><a href="getTalksComment.Servlet?title=${t.title}&text=${t.text}&userID=${t.userID}">${t.title}</a></td>
-		<td><button type="button" class="btn btn-primary btn-sm" onclick=alert("操作成功!")>收藏</button></td></tr> 
-		 <!--<p>${t.userID}</p><!-- 上一行的onclick事件将参数传至“我的收藏中”，你对照着后台传吧。。。 -->
-		<p>${t.title}</p>
-		<p>${t.text}</p>-->
-	</c:forEach>
-	</table>
+       
+.tb {
+display: table;
+pointer-events: none;
+width: 120%;
+height: 100%;
+}
+
+.tb>.tc {
+display: table-cell;
+pointer-events: none;
+vertical-align: middle;
+}
+
+.tb>.tc>div {
+pointer-events: auto;
+}
+
+/* Custom Styles */
+	.jumbotron{
+		height:20px;
+	}
 	
-	<div align="center">
-	<a href="GiveTalk.jsp"><button type="button" class="btn btn-primary btn-lg">发表话题</button></a>
+    ul.nav-tabs{
+        width: 140px;
+        margin-top: 20px;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+    }
+    ul.nav-tabs li{
+        margin: 0;
+        border-top: 1px solid #ddd;
+    }
+    ul.nav-tabs li:first-child{
+        border-top: none;
+    }
+    ul.nav-tabs li a{
+        margin: 0;
+        padding: 8px 16px;
+        border-radius: 0;
+    }
+    ul.nav-tabs li.active a, ul.nav-tabs li.active a:hover{
+        color: #fff;
+        background: #0088cc;
+        border: 1px solid #0088cc;
+    }
+    ul.nav-tabs li:first-child a{
+        border-radius: 4px 4px 0 0;
+    }
+    ul.nav-tabs li:last-child a{
+        border-radius: 0 0 4px 4px;
+    }
+    ul.nav-tabs.affix{
+        top: 30px; /* Set the top position of pinned element */
+    }
+    
+.row {
+    margin-right: 100px;
+    margin-left: 100px;
+}
+    
+</style>
+</head>
+
+<body>  
+	<div id="header">
+			<div style="font: 17px '微软雅黑';" class="navbar navbar-default navbar-fixed-top" role="navigation">
+			    <div class="container">
+				    <div class="navbar-header">
+				    	 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar-collapse">
+				            <span class="sr-only">切换导航</span>
+				            <span class="icon-bar"></span>
+				            <span class="icon-bar"></span>
+				            <span class="icon-bar"></span>
+				        </button>
+				        <a class="navbar-brand" href="index.html"><img src="images/logo.png" style="margin-top:-20px;"></a>
+				    </div>
+			    <div>
+			        <ul class="nav navbar-nav">
+			            <li class="active"><a href="index.html">首页</a></li>
+			            <li><a href="getNews.Servlet">新闻</a></li>
+			            <li><a href="getTalks.Servlet">话题</a></li>
+			            <li><a href="getMyfriend.Servlet">朋友圈</a></li>
+			        </ul>
+			        <ul class="nav navbar-nav pull-right">
+			        	<li>  
+				            <form method="post" action="SerachTalk_News.Servlet" class="navbar-form navbar-left">
+						        <div class="form-group">
+						         <input name="text" type="text" class="form-control" placeholder="新闻和话题">
+						        </div>
+						        <button type="submit" class="btn btn-default glyphicon glyphicon-search"></button>
+						     </form>
+						</li>
+						<li><a href="#" data-toggle="modal" data-target="#opensignup">注册</a></li>
+						<li><a href="#" data-toggle="modal" data-target="#openlogin">登录</a></li>
+						<li class="dropdown">
+			                <a href="#" class="dropdown-toggle" data-toggle="dropdown">个人中心<b class="caret"></b></a>
+			                <ul class="dropdown-menu">
+			                    <li><a href="getMyInformation.Servlet">个人信息</a></li>
+			                    <li class="divider"></li>
+			                    <li><a href="getMyNews.Servlet">收藏新闻</a></li>
+			                    <li class="divider"></li>
+			                    <li><a href="getMyTalk.Servlet">我的话题</a></li>
+			                    <li class="divider"></li>
+			                    <li><a href="getFavoriteTalks.Servlet">收藏话题</a></li>
+			                </ul>
+			            </li>
+			        </ul>
+			    </div>
+			   </div>
+		</div>
 	</div>
-	<div align="center">
-	<ul class="pagination">
-    <li><a href="#">&laquo;</a></li>
-    <li><a href="alltalks.jsp?begin=0&end=9">1</a></li>
-    <li><a href="alltalks.jsp?begin=10&end=19">2</a></li>
-    <li><a href="alltalks.jsp?begin=20&end=29">3</a></li>
-    <li><a href="alltalks.jsp?begin=30&end=39">4</a></li>
-    <li><a href="alltalks.jsp?begin=40&end=49">5</a></li>
-    <li><a href="alltalks.jsp?begin=50&end=59">6</a></li>
-    <li><a href="alltalks.jsp?begin=60&end=69">7</a></li>
-    <li><a href="alltalks.jsp?begin=70&end=79">8</a></li>
-    <li><a href="alltalks.jsp?begin=80&end=89">9</a></li>
-    <li><a href="alltalks.jsp?begin=90&end=99">10</a></li>
-    <li><a href="#">&raquo;</a></li>
-</ul>
-</div>
-<p align="center"><span class="c">@BuddaUseVPN</span></p>  
-	<p align="center"><span class="b">HIT</span></p>  
+	
+	<div style="padding-top:100px;" data-spy="scroll" data-target="#myScrollspy">
+		<div class="container">
+		    <div class="row">
+		        <div class="col-xs-4" id="myScrollspy">
+		            <ul class="nav nav-tabs nav-stacked" data-spy="affix" data-offset-top="125">
+		                <li><a href="#"  class="btn btn-primary" role="button" data-toggle="collapse" data-target="#section-1">查看话题</a></li>
+		                <li><a href="#"  class="btn btn-warning" role="button" data-toggle="collapse" data-target="#section-2">发表话题</a></li>
+		            </ul>
+		        </div>
+		        <div class="col-xs-8">
+		            <div id="section-1"  class="collapse in">
+		            	<div class="panel panel-warning">
+		            		<c:forEach items="${Talks}" var="t">
+								<div class="panel-heading">
+									<h3 class="panel-title">
+									<a href="FavoriteTalk.Servlet?id=${t.id}" class="glyphicon glyphicon-heart tooltip-test" style="color:red;padding-right:8px;" data-toggle="tooltip" title="收藏话题"></a>
+									<a href="getTalksComment.Servlet?title=${t.title}&text=${t.text}&userID=${t.userID}">${t.title}</a>
+									</h3>
+								</div>
+								<div class="panel-body">
+									${t.text}
+								</div>
+							</c:forEach>
+						</div>
+					</div>
+		            <div id="section-2"  class="collapse">
+		            	<form method="post" action="InsertTalk.Servlet">
+							<h3>话题标题</h3>
+							<input name="Title" type="text" style="height:30px;width:400px;border:1px solid #f0ad4e;">
+							<h4>话题内容</h4>
+							<textarea name="Text" style="height:300px;width:400px;border:1px solid #f0ad4e;"></textarea><h4></h4>
+							<input type="submit" value="提交" class="btn btn-primary" role="button" style="width:402px;background-color:#0088cc;">
+						</form>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+	</div>
+	
+
+	<div class="modal fade" id="opensignup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"  aria-hidden="true">
+			<div class='tb'><div class='tc'>
+		    <div class="modal-dialog">
+		        <div class="modal-content" style="width:300px;height:320px;">
+		        	 <div class="modal-body">
+		        	 	<div class="signup_kuang">
+							<h1>欢迎注册</h1>
+							<form action="signup">
+								<input name="userID" type="text" class="signup_userID" placeholder="职工唯一号">
+								<input name="password" type="password" class="signup_password" placeholder="密码">
+								<input name="tellphone" type="text" class="signup_tellphone" placeholder="手机号">
+								<input type="submit" class="signup_butt" value="注册">
+							</form>
+						</div>
+		           </div>
+		        </div><!-- /.modal-content -->
+		    </div><!-- /.modal -->
+		    </div></div>
+		</div>
+		
+		<div class="modal fade" id="openlogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"  aria-hidden="true">
+			<div class='tb'><div class='tc'>
+		    <div class="modal-dialog">
+		        <div class="modal-content" style="width:300px;height:280px;">
+		        	 <div class="modal-body">
+		        	 	 <div class="login_kuang">
+							<h1>登陆</h1>
+							<form method="post" action="login.Servlet">
+								<input name="userID" type="text" class="login_txt1" placeholder="职工唯一号">
+								<input name="password" type="password" class="login_txt2" placeholder="密码">
+								<input type="submit" class="login_butt" value="登陆">
+							</form>
+		        		</div>
+		           </div>
+		        </div><!-- /.modal-content -->
+		    </div><!-- /.modal -->
+		    </div></div>
+		</div>
+	
+	
+
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+    	$(function () { 
+    		$('#section-1').on('show.bs.collapse', function () {
+    			$('#section-2').collapse('hide');
+    		});
+    		$('#section-2').on('show.bs.collapse', function () {
+    			$('#section-1').collapse('hide');
+    		});
+    		$("[data-toggle='tooltip']").tooltip();
+    	});
+    </script>
 </body>  
 </html>

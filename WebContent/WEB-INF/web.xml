@@ -2,7 +2,7 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
   <display-name>Hit_Circles</display-name>
   <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.html</welcome-file>
   </welcome-file-list>
   <filter>
     <filter-name>struts2</filter-name>
@@ -88,5 +88,77 @@
   <servlet-mapping>
     <servlet-name>getTalksComment</servlet-name>
     <url-pattern>/getTalksComment.Servlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>FavoriteTalk</servlet-name>
+    <servlet-class>com.servlet.FavoriteTalk</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FavoriteTalk</servlet-name>
+    <url-pattern>/FavoriteTalk.Servlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>FavoriteNews</servlet-name>
+    <servlet-class>com.servlet.FavoriteNews</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FavoriteNews</servlet-name>
+    <url-pattern>/FavoriteNews.Servlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>getMyNews</servlet-name>
+    <servlet-class>com.servlet.getMyNews</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>getMyNews</servlet-name>
+    <url-pattern>/getMyNews.Servlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>getMyTalk</servlet-name>
+    <servlet-class>com.servlet.getMyTalk</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>getMyTalk</servlet-name>
+    <url-pattern>/getMyTalk.Servlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>getFavoriteTalks</servlet-name>
+    <servlet-class>com.servlet.getFavoriteTalks</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>getFavoriteTalks</servlet-name>
+    <url-pattern>/getFavoriteTalks.Servlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AddFriend</servlet-name>
+    <servlet-class>com.servlet.AddFriend</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddFriend</servlet-name>
+    <url-pattern>/AddFriend.Servlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>getMyfriend</servlet-name>
+    <servlet-class>com.servlet.getMyfriend</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>getMyfriend</servlet-name>
+    <url-pattern>/getMyfriend.Servlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>GetFriendinformation</servlet-name>
+    <servlet-class>com.servlet.GetFriendinformation</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetFriendinformation</servlet-name>
+    <url-pattern>/GetFriendinformation.Servlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>SerachTalk_News</servlet-name>
+    <servlet-class>com.servlet.SerachTalk_News</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SerachTalk_News</servlet-name>
+    <url-pattern>/SerachTalk_News.Servlet</url-pattern>
   </servlet-mapping>
 </web-app>

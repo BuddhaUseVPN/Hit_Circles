@@ -42,10 +42,8 @@ public class LoginServlet extends HttpServlet {
 			passcookie.setMaxAge(2000);
 			res.addCookie(IDcookie);
 			res.addCookie(passcookie);
-			res.sendRedirect("index.jsp");
+			res.sendRedirect("index.html");
 		}
-		else
-			res.sendRedirect("login.jsp");
 	}
 	
 	public void doPost(HttpServletRequest req, HttpServletResponse res) throws

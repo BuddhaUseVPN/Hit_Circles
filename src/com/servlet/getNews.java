@@ -34,8 +34,6 @@ public class getNews extends HttpServlet {
 		//x.Url();
 		dao_News n = new dao_News();
 		request.setAttribute("News",n.getNews());
-		request.setAttribute("begin", request.getParameter("begin"));
-		request.setAttribute("end", request.getParameter("end"));
 		request.getRequestDispatcher("/allnews.jsp").forward(request, response);
 	}
 

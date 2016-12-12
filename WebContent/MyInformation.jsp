@@ -4,72 +4,193 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link type="text/css" rel="stylesheet" href="css/main.css">
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<script src="js/jquery-1.11.3.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="css/bootstrap.css"  rel="stylesheet">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MyInformattion</title>
-<style type="text/css">
-body{margin:0;padding:0;
-background-image:url("images/circle05.jpg");
-background-attachment: fixed;
-background-repeat: no-repeat;
-background-size: cover;}
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/login.css">
+<link rel="stylesheet" href="css/signup.css">
+<style>
+body{padding-top: :60px;}
 
-</style>
-<script language="javascript">
-function getInformation() 
-{
-	window.location.href = "/getMyInformation.Servlet";
+.navbar{
+	background-color:rgba(255,255,255,0.6);
 }
-</script>
+     
+.tb {
+display: table;
+pointer-events: none;
+width: 120%;
+height: 100%;
+}
+.tb>.tc {
+display: table-cell;
+pointer-events: none;
+vertical-align: middle;
+}
+.tb>.tc>div {
+pointer-events: auto;
+}
+
+/* Custom Styles */
+	.jumbotron{
+		height:20px;
+	}
+	
+    ul.nav-tabs{
+        width: 140px;
+        margin-top: 20px;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+    }
+    ul.nav-tabs li{
+        margin: 0;
+        border-top: 1px solid #ddd;
+    }
+    ul.nav-tabs li:first-child{
+        border-top: none;
+    }
+    ul.nav-tabs li a{
+        margin: 0;
+        padding: 8px 16px;
+        border-radius: 0;
+    }
+    ul.nav-tabs li.active a, ul.nav-tabs li.active a:hover{
+        color: #fff;
+        background: #0088cc;
+        border: 1px solid #0088cc;
+    }
+    ul.nav-tabs li:first-child a{
+        border-radius: 4px 4px 0 0;
+    }
+    ul.nav-tabs li:last-child a{
+        border-radius: 0 0 4px 4px;
+    }
+    ul.nav-tabs.affix{
+        top: 30px; /* Set the top position of pinned element */
+    }
+    
+</style>
 </head>
+
 <body>
-<nav class="navbar navbar-default" role="navigation">
-	<div class="container-fluid">
-	<div class="navbar-header">
-		<a class="navbar-brand" href="main.jsp">首页</a>
+	<div id="header">
+			<div style="font: 17px '微软雅黑';" class="navbar navbar-default navbar-fixed-top" role="navigation">
+			    <div class="container">
+				    <div class="navbar-header">
+				    	 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar-collapse">
+				            <span class="sr-only">切换导航</span>
+				            <span class="icon-bar"></span>
+				            <span class="icon-bar"></span>
+				            <span class="icon-bar"></span>
+				        </button>
+				        <a class="navbar-brand" href="index.html"><img src="images/logo.png" style="margin-top:-20px;"></a>
+				    </div>
+			    <div>
+			        <ul class="nav navbar-nav">
+			            <li class="active"><a href="index.html">首页</a></li>
+			            <li><a href="getNews.Servlet">新闻</a></li>
+			            <li><a href="getTalks.Servlet">话题</a></li>
+			            <li><a href="getMyfriend.Servlet">朋友圈</a></li>
+			        </ul>
+			        <ul class="nav navbar-nav pull-right">
+			        	<li>  
+				            <form method="post" action="SerachTalk_News.Servlet" class="navbar-form navbar-left">
+						        <div class="form-group">
+						         <input name="text" type="text" class="form-control" placeholder="新闻和话题">
+						        </div>
+						        <button type="submit" class="btn btn-default glyphicon glyphicon-search"></button>
+						     </form>
+						</li>
+						<li><a href="#" data-toggle="modal" data-target="#opensignup">注册</a></li>
+						<li><a href="#" data-toggle="modal" data-target="#openlogin">登录</a></li>
+						<li class="dropdown">
+			                <a href="#" class="dropdown-toggle" data-toggle="dropdown">个人中心<b class="caret"></b></a>
+			                <ul class="dropdown-menu">
+			                    <li><a href="getMyInformation.Servlet">个人信息</a></li>
+			                    <li class="divider"></li>
+			                    <li><a href="getMyNews.Servlet">收藏新闻</a></li>
+			                    <li class="divider"></li>
+			                    <li><a href="getMyTalk.Servlet">我的话题</a></li>
+			                    <li class="divider"></li>
+			                    <li><a href="getFavoriteTalks.Servlet">收藏话题</a></li>
+			                </ul>
+			            </li>
+			        </ul>
+			    </div>
+			   </div>
+		</div>
 	</div>
-	<div>
-		<ul class="nav navbar-nav">
-			<li><a href="getNews.Servlet?begin=0&end=9">热点新闻</a></li>
-			<li><a href="getTalks.Servlet?begin=0&end=9">热点话题</a></li>
-			<li><a href="Chat.jsp">好友聊天</a></li>
-			<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-					我的
-					<b class="caret"></b>
-				</a>
-				<ul class="dropdown-menu">
-					<li><a href="MyNews.jsp">我的新闻</a></li>
-					<li><a href="MyTalk.jsp">我的话题</a></li>
-					<li class="divider"></li>
-					<li class="active"><a href="MyInformation.jsp">我的信息</a></li>
-					<li class="divider"></li>
-					<li><a href="signup.jsp">登录|注册</a></li>
-				</ul>
-			</li>
-		</ul>
+	
+
+	<div style="padding-top:100px;" data-spy="scroll" data-target="#myScrollspy">
+		<div class="container">
+		   <div class="jumbotron">
+		        <h3 style="text-align:center;margin-top:-6px;">个人信息</h3>
+		    </div>
+		    <div class="row">
+		        <div class="col-xs-4" id="myScrollspy">
+		            <ul class="nav nav-tabs nav-stacked" data-spy="affix" data-offset-top="125">
+		                <li class="active"><a href="#" data-toggle="collapse" data-target="#section-1">用户名</a></li>
+		                <li><a href="#" data-toggle="collapse" data-target="#section-2">密码</a></li>
+		                <li><a href="#" data-toggle="collapse" data-target="#section-3">手机号</a></li>
+		            </ul>
+		        </div>
+		        <div class="col-xs-8">
+		            <div id="section-1"  class="collapse in"><h3>${user.userID}</h3><hr></div>
+		            <div id="section-2"  class="collapse in"><h3>${user.password}</h3><hr></div>
+		            <div id="section-3"  class="collapse in"><h3>${user.tellphone}</h3></div>  
+		        </div>
+		    </div>
+		</div>
 	</div>
-	</div>
-</nav>  
-<div>
-<table>
-<tr>
-<td> </td>
-<td> </td>
-</tr>
-</table>
-</div>
-<h4>&nbsp;&nbsp;&nbsp;我的信息</h4>
-<div>
-<ul>
-	<li>用户名：${user.userID}</li>
-	<li>密码：${user.password}</li>
-	<li>电话：${user.tellphone}</li>
-</ul>
-</div>
+		
+	<div class="modal fade" id="opensignup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"  aria-hidden="true">
+			<div class='tb'><div class='tc'>
+		    <div class="modal-dialog">
+		        <div class="modal-content" style="width:300px;height:320px;">
+		        	 <div class="modal-body">
+		        	 	<div class="signup_kuang">
+							<h1>欢迎注册</h1>
+							<form action="signup">
+								<input name="userID" type="text" class="signup_userID" placeholder="职工唯一号">
+								<input name="password" type="password" class="signup_password" placeholder="密码">
+								<input name="tellphone" type="text" class="signup_tellphone" placeholder="手机号">
+								<input type="submit" class="signup_butt" value="注册">
+							</form>
+						</div>
+		           </div>
+		        </div><!-- /.modal-content -->
+		    </div><!-- /.modal -->
+		    </div></div>
+		</div>
+		
+		<div class="modal fade" id="openlogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"  aria-hidden="true">
+			<div class='tb'><div class='tc'>
+		    <div class="modal-dialog">
+		        <div class="modal-content" style="width:300px;height:280px;">
+		        	 <div class="modal-body">
+		        	 	 <div class="login_kuang">
+							<h1>登陆</h1>
+							<form method="post" action="login.Servlet">
+								<input name="userID" type="text" class="login_txt1" placeholder="职工唯一号">
+								<input name="password" type="password" class="login_txt2" placeholder="密码">
+								<input type="submit" class="login_butt" value="登陆">
+							</form>
+		        		</div>
+		           </div>
+		        </div><!-- /.modal-content -->
+		    </div><!-- /.modal -->
+		    </div></div>
+		</div>
+		
+	 <script src="js/jquery-1.11.1.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    $(function () { $('#section-2').collapse('hide')});
+    $(function () { $('#section-3').collapse('hide')});
+    </script>
 </body>
 </html>
