@@ -9,6 +9,7 @@
 基于Web开发（利用Servlet技术）的工大圈子主要有四部分的核心工作：Web页面的美化，新闻模块设计，话题模块设计，用户聊天模块的设计。
 
 ### 使用说明：
-
+实现代码为Java，代码和hit_circlesSQL.rar(SQL文件)下载后，需要吧sql文件导入本地数据库，同时在Eclipse中连接数据库的时候请与自己本地的环境做对应，以及需要配置tomcat来进行本地测试。Java代码如果在你的IDE中不可用，可调试环境（JRE System Library），大多数条件下只需更改JDK的版本即可以运行，如果你有与我们项目版本兼容的jdk，可以直接在项目Configure Build Path中的Libraries中修改运行环境即可，否则下载相匹配的jdk后再进行配置，后具体配置调试方法，请点击[这里](https://jingyan.baidu.com/article/6dad5075122d05a123e36ed4.html)<br><br>。
+注：附开题报告一份，和结题答辩ppt，可以适当参考
 
 
